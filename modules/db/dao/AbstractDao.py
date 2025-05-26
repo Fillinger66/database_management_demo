@@ -8,7 +8,7 @@ from abc import ABC, abstractmethod
 import threading
 from typing import Any, List, Tuple, Union, Optional, Dict
 
-class AbrstractDao(ABC):
+class AbstractDao(ABC):
     """
     Abstract base class for core Data Access Object functionalities.
     Defines generic database interaction primitives that all concrete

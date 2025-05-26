@@ -18,7 +18,7 @@ class IChatRepository(IRepository[ChatMessage]):
     """
 
     @abstractmethod
-    def get_messages_by_session_id(self, session_id: str) -> List[ChatMessage]:
+    def get_messages_by_session_id(self,user_id: int, session_id: str) -> List[ChatMessage]:
         """
         Retrieves all chat messages for a given session ID, ordered by timestamp.
             :param session_id: The ID of the chat session.

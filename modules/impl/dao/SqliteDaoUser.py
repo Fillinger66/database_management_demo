@@ -5,7 +5,7 @@
   See the LICENSE file for details.
 """
 import sqlite3
-import modules.db.dao.SqliteDao as SqliteDao 
+from modules.db.dao.SqliteDao import SqliteDao 
 
 class SqliteDaoUser(SqliteDao):
     """

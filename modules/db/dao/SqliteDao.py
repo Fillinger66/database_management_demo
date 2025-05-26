@@ -5,12 +5,12 @@
   This project is licensed under the Educational and Non-Commercial Use License.
   See the LICENSE file for details.
 """
-from modules.db.dao.AbstractDao import AbrstractDao
+from modules.db.dao.AbstractDao import AbstractDao
 import sqlite3
 import time
 import threading
 
-class SqliteDao(AbrstractDao):
+class SqliteDao(AbstractDao):
     """
     Base class for Data Access Objects (DAO) for SQLite database.
     This class provides basic database operations such as checking table existence,

@@ -54,7 +54,7 @@ class SqliteChatRepository(IChatRepository):
         row = self._dao_chat.execute_query(query, (message_id,), fetch_one=True)
         return self._map_row_to_chat_message(row)
 
-    def get_messages_by_session_id(self,user_id, session_id: str) -> List[ChatMessage]:
+    def get_messages_by_session_id(self,user_id: int, session_id: str) -> List[ChatMessage]:
         query = f"""SELECT {self._dao_chat._field_id}, {self._dao_chat._field_session_id}, 
                     {self._dao_chat._field_user_id}, {self._dao_chat._field_role},{self._dao_chat._field_text} 
                     FROM {self._dao_chat.tablename} 
@@ -77,12 +77,12 @@ class SqliteChatRepository(IChatRepository):
         query = f"""UPDATE {self._dao_chat.tablename} 
                     SET {self._dao_chat._field_role} = ?, 
                         {self._dao_chat._field_text} = ?, 
-                        {self._dao_chat._field_session_id} = ? 
-                        {self._dao_chat._field_user_id} = ?, 
+                        {self._dao_chat._field_session_id} = ?, 
+                        {self._dao_chat._field_user_id} = ? 
                     WHERE {self._dao_chat._field_id} = ?"""
         
         params = (message.role, message.text, message.session_id,message.user_id,message.id)
-        return self._dao_user._execute_with_retry(query, params)
+        return self._dao_chat._execute_with_retry(query, params)
     
    
     
