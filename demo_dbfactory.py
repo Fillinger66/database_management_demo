@@ -2,7 +2,7 @@ import threading
 import time
 from random import randint
 import os
-from  modules.impl.facade.SqliteDbFacade import SqliteDbFactory
+from  modules.impl.factories.SqliteDbFactory import SqliteDbFactory
 
 # Define the database path
 DB_PATH = "database/test_factory.db"
